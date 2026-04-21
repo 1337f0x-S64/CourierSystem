@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.courier.controllers.UsersViewsController"
+      style="-fx-background-color: #9CD5FF;"
+      spacing="3">
+
+    <Label text="Views Users" style="-fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+    <HBox spacing="4" alignment="CENTER_RIGHT" >
+        <Button fx:id="btnAdd" text="Add"
+                style="-fx-background-color: #0d47a1;-fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+        <Button fx:id="btnEdit" text="Edit"
+                style="-fx-background-color: #0d47a1;-fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+        <Button fx:id="btnDelete" text="Delete"
+                style="-fx-background-color: #0d47a1;-fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+    </HBox>
+    <TableView fx:id="tableUsers" prefWidth="500" prefHeight="400" style="-fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50" >
+                <cellValueFactory>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colName" text="Name" prefWidth="100" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="name"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colLastName" text="Last Name" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="lastName"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colUserName" text="Username" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="username"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="email"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</VBox>

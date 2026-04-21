@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.courier.controllers.AddEditPackageController"
+            prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: #9CD5FF;">
+
+    <VBox spacing="10" maxWidth="Infinity" prefWidth="300" style="-fx-padding: 10;">
+
+        <TextField fx:id="txtId" disable="true" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+        <TextField fx:id="txtUserId" disable="true"  style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+        <Label text="Name User:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <HBox>
+            <TextField fx:id="txtNameUser" prefWidth="280" editable="false"  style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+            <Button fx:id="btnSearchUser" style="-fx-background-color: #0086FF;"/>
+        </HBox>
+
+        <Label text="Weight:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <TextField fx:id="txtWeight"  style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <Label text="Description:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <TextField fx:id="txtDescription" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+        <HBox alignment="CENTER">
+
+            <Button fx:id="btnSave" text="Save" prefWidth="150" style="-fx-background-color: #0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

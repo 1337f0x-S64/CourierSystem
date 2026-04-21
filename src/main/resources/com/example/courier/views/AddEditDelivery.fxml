@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.courier.controllers.AddEditDeliveryController"
+            prefHeight="800.0" prefWidth="600.0">
+
+    <ScrollPane prefWidth="600.0" prefHeight="800.0" fitToWidth="true" fitToHeight="true" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <VBox spacing="10" maxWidth="Infinity" prefWidth="300" style="-fx-padding: 10; -fx-background-color: #9CD5FF;">
+
+            <Label text="ID:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+            <TextField fx:id="txtId" disable="true" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+            <Label text="Package Name:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+            <TextField fx:id="txtPackageId" disable="true" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+            <HBox>
+                <TextField fx:id="txtPackageDescription" editable="false" prefWidth="280" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+                <Button fx:id="btnSearchPackage" style="-fx-background-color: #0086FF;" />
+            </HBox>
+
+            <Label text="Start Location:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+            <TextField fx:id="txtStartLocation" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+            <Label text="End Location:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+            <TextField fx:id="txtEndLocation" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+            <Label text="Tracking Number:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+            <TextField fx:id="txtTrackingNumber" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+            <Label text="Delivery Date (yyyy-MM-dd HH:mm):" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+            <HBox>
+                <DatePicker fx:id="txtDeliveryDate" style="-fx-background-color: #0086FF;"/>
+                <Spinner fx:id="cbxHours"/>
+                <Label text=":"/>
+                <Spinner fx:id="cbxMinutes" style="-fx-background-color: #0086FF;" />
+            </HBox>
+
+            <Label text="Optimal Path:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+            <TextField fx:id="txtOptimalPath" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+            <Label text="Status:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+            <ComboBox fx:id="txtStatus" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+            <Label text="Courier Name:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+            <TextField fx:id="txtCourierId" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+            <HBox>
+                <TextField fx:id="txtCourierName" editable="false" prefWidth="280" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+                <Button fx:id="btnSearchCourier" style="-fx-background-color: #0086FF;"/>
+            </HBox>
+
+            <Label text="Possible Reception Date (yyyy-MM-dd):" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+            <HBox>
+                <DatePicker fx:id="txtPossibleReceptionDate" />
+            </HBox>
+            <HBox alignment="CENTER">
+                <Button fx:id="btnSave" text="Save" prefWidth="150" style="-fx-background-color: #0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+            </HBox>
+        </VBox>
+    </ScrollPane>
+
+</AnchorPane>
+

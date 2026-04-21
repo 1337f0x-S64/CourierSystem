@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.courier.controllers.AddEditUserController"
+            prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: #9CD5FF;">
+
+    <VBox spacing="10" maxWidth="Infinity" prefWidth="300" style="-fx-padding: 10;">
+
+        <Label text="Id:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <TextField fx:id="txtId" disable="true" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <Label text="Name:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <TextField fx:id="txtName" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <Label text="Last Name:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <TextField fx:id="txtLastName" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <Label text="User Name:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <TextField fx:id="txtUserName" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <Label text="Email:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+
+        <TextField fx:id="txtEmail" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <Label text="Password:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <PasswordField fx:id="txtPassword" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <Label text="Role:" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <ComboBox fx:id="cmbxRole" prefWidth="Infinity " style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+        <HBox alignment="CENTER">
+
+            <Button fx:id="btnSave" text="Save" prefWidth="150" style="-fx-background-color: #0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

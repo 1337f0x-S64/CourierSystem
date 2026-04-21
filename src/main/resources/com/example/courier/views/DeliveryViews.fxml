@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.courier.controllers.DeliveryViewsController"
+      style="-fx-background-color: #9CD5FF"
+      spacing="3">
+
+    <Label text="Delivery Views" style="-fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+    <HBox spacing="4" alignment="CENTER_RIGHT">
+        <Button fx:id="btnAdd" text="Add"
+                style="-fx-background-color: #0d47a1;-fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+        <Button fx:id="btnEdit" text="Edit"
+                style="-fx-background-color: #0d47a1;-fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+        <Button fx:id="btnDelete" text="Delete"
+                style="-fx-background-color: #0d47a1;-fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+        <Button fx:id="btnCompleteDelivery" text="Complete Delivery"
+                style="-fx-background-color: #0d47a1;-fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+    </HBox>
+
+    <TableView fx:id="tableRoutes" prefWidth="800" prefHeight="400"
+               style="-fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colPackageId" text="Package ID" prefWidth="50">
+                <cellValueFactory>
+                    <PropertyValueFactory property="packageId"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colPackageName" text="Package Description" prefWidth="130">
+                <cellValueFactory>
+                    <PropertyValueFactory property="packageName"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colStartLocation" text="Start Location" prefWidth="130">
+                <cellValueFactory>
+                    <PropertyValueFactory property="startLocation"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colEndLocation" text="End Location" prefWidth="130">
+                <cellValueFactory>
+                    <PropertyValueFactory property="endLocation"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colTrackingNumber" text="Tracking #" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="trackingNumber"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colDeliveryDate" text="Delivery Date" prefWidth="130">
+                <cellValueFactory>
+                    <PropertyValueFactory property="deliveryDate"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colOptimalPath" text="Optimal Path" prefWidth="130">
+                <cellValueFactory>
+                    <PropertyValueFactory property="optimalPath"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="90">
+                <cellValueFactory>
+                    <PropertyValueFactory property="status"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colCourierId" text="Courier ID" prefWidth="50">
+                <cellValueFactory>
+                    <PropertyValueFactory property="courierId"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colCourierName" text="Courier Name" prefWidth="130">
+                <cellValueFactory>
+                    <PropertyValueFactory property="courierName"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colPossibleReceptionDate" text="Possible Reception" prefWidth="130">
+                <cellValueFactory>
+                    <PropertyValueFactory property="possibleReceptionDate"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colReceptionDate" text="Reception Date" prefWidth="130">
+                <cellValueFactory>
+                    <PropertyValueFactory property="receptionDate"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+</VBox>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="300" prefWidth="500"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            style="-fx-background-color: #9CD5FF"
+            fx:controller="com.example.courier.controllers.SearchUsersController">
+
+<BorderPane prefWidth="500" style="-fx-padding: 20;">
+    <top>
+        <HBox prefWidth="500">
+            <Button fx:id="btnSearch" style="-fx-background-color: #0086FF;"/>
+
+            <TextField fx:id="txtSearch" promptText="Enter Name" style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+            <Button fx:id="btnClean" style="-fx-background-color: #0086FF;"/>
+
+            <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
+
+            <Button fx:id="btnSelect" text="Select" style="-fx-background-color:#0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="10" style="-fx-padding: 10 0 0 0;">
+            <TableView fx:id="tableUsers" prefHeight="200" prefWidth="300" style="-fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;">
+
+                <columns>
+                    <TableColumn fx:id="colId" prefWidth="50" text="ID" >
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colName" prefWidth="220.0" text="Name">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="name" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colLastName" prefWidth="189.0" text="Last Name">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="lastName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
+</AnchorPane>

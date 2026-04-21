@@ -1,0 +1,36 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.SplitPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.courier.controllers.MainMenuController">
+    <left>
+        <VBox spacing="10" style="-fx-padding: 20; -fx-background-color: #9CD5FF;">
+            <Button fx:id="btnMyUser" text="My User" prefWidth="150" prefHeight="40"
+                    style="-fx-background-color: #0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 16px;"/>
+
+            <Button fx:id="btnUsers" text="Users" prefWidth="150" prefHeight="40"
+                    style="-fx-background-color: #0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 16px;"/>
+
+            <Button fx:id= "btnTracking" text="Tracking" prefWidth="150" prefHeight="40"
+                    style="-fx-background-color: #0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 16px;"/>
+
+            <Button fx:id= "btnPackage" text="Packages" prefWidth="150" prefHeight="40"
+                    style="-fx-background-color: #0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 16px;"/>
+
+            <Button fx:id= "btnDelivery" text="Delivery" prefWidth="150" prefHeight="40"
+                    style="-fx-background-color: #0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 16px;"/>
+
+            <Button fx:id="btnCloseSession" text="Close Session" prefWidth="150" prefHeight="40"
+                    style="-fx-background-color: #0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 16px;">
+
+            </Button>
+        </VBox>
+    </left>
+    <center>
+        <SplitPane style="-fx-padding: 10;">
+            <StackPane fx:id="contentViewMain" />
+        </SplitPane>
+    </center>
+</BorderPane>
+

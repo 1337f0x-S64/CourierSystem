@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<AnchorPane prefHeight="500" prefWidth="500"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            style="-fx-background-color: #9CD5FF"
+            fx:controller="com.example.courier.controllers.SearchPackageController">
+
+<BorderPane prefWidth="500" style="-fx-padding: 20;">
+    <top>
+        <HBox prefWidth="500">
+            <Button fx:id="btnSearch" style="-fx-background-color: #0086FF;"/>
+
+            <TextField fx:id="txtSearch" promptText="Enter Description"  style="-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;"/>
+
+            <Button fx:id="btnClean" style="-fx-background-color: #0086FF;" />
+
+            <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
+
+            <Button fx:id="btnSelect" text="Select" style="-fx-background-color:#0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;" />
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="10" style="-fx-padding: 10 0 0 0;">
+            <TableView fx:id="tablePackages"  prefWidth="200" prefHeight="200" style="-fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 14px;">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colUserId" text="User Id" prefWidth="100">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="userId"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colNameUser" text="Name User" prefWidth="100">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="nameUser"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colWeight" text="Weight" prefWidth="100">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="weight"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colDescription" text="Description" prefWidth="200">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="description"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
+</AnchorPane>

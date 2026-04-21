@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.ImageView?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.courier.HelloController"
+      style="-fx-background-color: #9CD5FF;">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label fx:id="welcomeText"/>
+    <ImageView fx:id="imgLogo" fitWidth="150" fitHeight="100">
+
+    </ImageView>
+
+    <Label text="Username" style="-fx-font-weight: bold;-fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 18px;"/>
+
+    <TextField fx:id="txtUser" promptText="Enter your username"
+               style="-fx-font-family: 'Times New Roman';-fx-font-size: 16px;"/>
+
+    <Label text="Password" style="-fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: 'Times New Roman'; -fx-font-size: 18px;"/>
+
+    <PasswordField fx:id="txtPassword" promptText="Enter your password"
+                   style="-fx-font-family: 'Times New Roman';-fx-font-size: 16px;"/>
+
+    <Button text="Log in" onAction="#onHelloButtonClick"
+            style="-fx-background-color: #0d47a1; -fx-text-fill: black; -fx-font-weight: bold;-fx-font-family: 'Times New Roman';-fx-font-size: 16px;"/>
+
+</VBox>
