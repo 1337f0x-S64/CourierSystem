@@ -5,33 +5,23 @@ import com.example.courier.models.UserGlobal;
 import com.example.courier.utils.formats.TextFormat;
 import com.example.courier.utils.messages.Message;
 import com.example.courier.utils.security.EncryptPassword;
+
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 
 public class MyUserViewsController {
-    @FXML
-    private TextField txtName;
 
-    @FXML
-    private TextField txtLastName;
-
-    @FXML
-    private TextField txtUserName;
-
-    @FXML
-    private TextField txtEmail;
-
-    @FXML
-    private Button btnUpdate;
-
-    @FXML
-    private PasswordField txtPassword;
-
-    @FXML
-    private  PasswordField txtNewPassword;
-
-    @FXML
-    private  PasswordField txtConfirmPassword;
+    @FXML private TextField     txtName;
+    @FXML private TextField     txtLastName;
+    @FXML private TextField     txtUserName;
+    @FXML private TextField     txtEmail;
+    @FXML private Button        btnUpdate;
+    @FXML private PasswordField txtPassword;
+    @FXML private PasswordField txtNewPassword;
+    @FXML private PasswordField txtConfirmPassword;
 
     public void initialize() {
         txtName.setText(UserGlobal.getInstance().getName());
@@ -39,16 +29,18 @@ public class MyUserViewsController {
         txtUserName.setText(UserGlobal.getInstance().getUsername());
         txtEmail.setText(UserGlobal.getInstance().getEmail());
 
-        txtName.setTextFormatter(new TextFormatter<>(TextFormat.textLength(10)));
-        txtLastName.setTextFormatter(new TextFormatter<>(TextFormat.textLength(10)));
-        txtUserName.setTextFormatter(new TextFormatter<>(TextFormat.textLength(10)));
-        txtEmail.setTextFormatter(new TextFormatter<>(TextFormat.textLength(30)));
+        txtName.setTextFormatter(new TextFormatter<>(TextFormat.textLength(50)));
+        txtLastName.setTextFormatter(new TextFormatter<>(TextFormat.textLength(50)));
+        txtUserName.setTextFormatter(new TextFormatter<>(TextFormat.textLength(50)));
+        txtEmail.setTextFormatter(new TextFormatter<>(TextFormat.textLength(100)));
 
         btnUpdate.setOnAction(e -> updateMyUser());
     }
 
     private void updateMyUser() {
-        if (txtName.getText() == "") {
+
+
+        if (txtName.getText().isEmpty()) {                         
             Message.showError("Update Error", "Name is required.");
             return;
         }
@@ -56,7 +48,7 @@ public class MyUserViewsController {
             Message.showError("Update Error", "Name must contain only letters.");
             return;
         }
-        if (txtLastName.getText() == "") {
+        if (txtLastName.getText().isEmpty()) {                       
             Message.showError("Update Error", "Last name is required.");
             return;
         }
@@ -64,37 +56,60 @@ public class MyUserViewsController {
             Message.showError("Update Error", "Last name must contain only letters.");
             return;
         }
-        if (txtUserName.getText() == "") {
+        if (txtUserName.getText().isEmpty()) {                       
             Message.showError("Update Error", "Username is required.");
             return;
         }
-        if (txtEmail.getText() == "") {
+        if (txtEmail.getText().isEmpty()) {                          
             Message.showError("Update Error", "Email is required.");
             return;
         }
-        String password = null;
 
-        if (!txtNewPassword.getText().isEmpty() && !txtConfirmPassword.getText().isEmpty()) {
 
-            if (!UserGlobal.getInstance().getPassword().equals(EncryptPassword.encryptSHA256(txtPassword.getText()))) {
+
+        boolean newPasswordFilled     = !txtNewPassword.getText().isEmpty();
+        boolean confirmPasswordFilled = !txtConfirmPassword.getText().isEmpty();
+
+        String password;
+
+        if (newPasswordFilled && confirmPasswordFilled) {
+
+            String storedEncrypted  = UserGlobal.getInstance().getPassword();
+            String enteredEncrypted = EncryptPassword.encryptSHA256(txtPassword.getText());
+
+            if (!storedEncrypted.equals(enteredEncrypted)) {
                 Message.showError("Update Error", "Incorrect current password.");
                 return;
             }
-            if (txtNewPassword.getText().equals(txtConfirmPassword.getText())) {
-                password = EncryptPassword.encryptSHA256(txtNewPassword.getText());
-            } else {
+            
+            if (!txtNewPassword.getText().equals(txtConfirmPassword.getText())) {
                 Message.showError("Update Error", "Passwords do not match.");
                 return;
             }
+            password = EncryptPassword.encryptSHA256(txtNewPassword.getText());
 
-        } else if (!txtNewPassword.getText().isEmpty() && txtConfirmPassword.getText().isEmpty() || txtNewPassword.getText().isEmpty() && !txtConfirmPassword.getText().isEmpty()) {
-            Message.showError("Update Error", "Both new password and confirmation must be filled." );
+        } else if (newPasswordFilled || confirmPasswordFilled) {
+            
+            Message.showError("Update Error",
+                    "Both new password and confirmation must be filled.");
             return;
+
         } else {
+            
             password = UserGlobal.getInstance().getPassword();
         }
-        MyUserViewsDatabase.updateMyUser(UserGlobal.getInstance().getId(), txtName.getText(), txtLastName.getText(), txtUserName.getText(), txtEmail.getText(), password);
-        Message.showInfo("Update Successful", "Your profile has been updated successfully.");
+
+
+        MyUserViewsDatabase.updateMyUser(
+                UserGlobal.getInstance().getId(),
+                txtName.getText(),
+                txtLastName.getText(),
+                txtUserName.getText(),
+                txtEmail.getText(),
+                password
+        );
+
+        Message.showInfo("Update Successful",
+                "Your profile has been updated successfully.");
     }
 }
-

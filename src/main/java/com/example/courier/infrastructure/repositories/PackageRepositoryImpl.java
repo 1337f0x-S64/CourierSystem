@@ -1,5 +1,11 @@
 package com.example.courier.infrastructure.repositories;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import com.example.courier.db.PackagesDatabase;
 import com.example.courier.domain.delivery.model.Package;
 import com.example.courier.domain.identityaccess.model.UserId;
@@ -8,12 +14,8 @@ import com.example.courier.domain.valueobjects.DeliveryStatus;
 import com.example.courier.domain.valueobjects.TrackingNumber;
 import com.example.courier.modelsPersonalize.Packages;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 public class PackageRepositoryImpl implements PackageRepository {
+
 
     @Override
     public List<Package> findAll() {
@@ -38,11 +40,16 @@ public class PackageRepositoryImpl implements PackageRepository {
     }
 
     @Override
+    public List<Packages> findAllWithOwnerName() {
+        return new ArrayList<>(PackagesDatabase.loadData());
+    }
+
+
+    @Override
     public boolean save(Package pkg) {
-        // Domain ensures tracking number and status exist upon creation
         return PackagesDatabase.createPackage(
-                pkg.getOwnerId().getValue(), 
-                pkg.getWeight(), 
+                pkg.getOwnerId().getValue(),
+                pkg.getWeight(),
                 pkg.getDescription(),
                 pkg.getTrackingNumber().getValue(),
                 pkg.getStatus().toCode()
@@ -66,22 +73,26 @@ public class PackageRepositoryImpl implements PackageRepository {
         return PackagesDatabase.deletePackage(packageId);
     }
 
-    //it bridges the Persistence Model (Packages) to the Domain Aggregate (Package)
+
     private Package toDomain(Packages p) {
         if (p == null) return null;
 
+        String trackingValue = (p.getTrackingNumber() != null
+                && !p.getTrackingNumber().isBlank())
+                ? p.getTrackingNumber()
+                : "RP-00000000"; 
 
-        String tracking = (p.getTrackingNumber() != null && !p.getTrackingNumber().isBlank()) 
-                          ? p.getTrackingNumber() : "RP-00000000";
-        String statusCode = (p.getStatus() != null && !p.getStatus().isBlank()) 
-                            ? p.getStatus() : "w"; // 'w' = REGISTERED
+        String statusCode = (p.getStatus() != null
+                && !p.getStatus().isBlank())
+                ? p.getStatus()
+                : "w"; 
 
         return new Package(
                 p.getId(),
                 new UserId(p.getUserId()),
                 p.getWeight(),
                 p.getDescription(),
-                TrackingNumber.of(tracking), 
+                TrackingNumber.of(trackingValue),
                 DeliveryStatus.fromCode(statusCode)
         );
     }
