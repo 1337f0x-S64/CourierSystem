@@ -37,3 +37,36 @@ INSERT INTO public.roles (name)
 VALUES ('Administrator'),
     ('Courier'),
     ('Customer');
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+CREATE OR REPLACE FUNCTION hash_update_tg() RETURNS trigger AS $$ BEGIN -- Check if it's a brand new record
+    IF (TG_OP = 'INSERT') THEN NEW.password = encode(digest(NEW.password, 'sha256'), 'hex');
+-- Check if it's an update AND the password field was actually modified
+ELSIF (TG_OP = 'UPDATE') THEN IF (
+    NEW.password IS DISTINCT
+    FROM OLD.password
+) THEN NEW.password = encode(digest(NEW.password, 'sha256'), 'hex');
+END IF;
+END IF;
+RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+CREATE TRIGGER trg_hash_password BEFORE
+INSERT
+    OR
+UPDATE ON public.users FOR EACH ROW EXECUTE FUNCTION hash_update_tg();
+INSERT INTO public.users (
+        name,
+        last_name,
+        username,
+        password,
+        email,
+        role_id
+    )
+VALUES (
+        'Admin',
+        'User',
+        'admin',
+        'admin123',
+        'admin@example.com',
+        1
+    );
