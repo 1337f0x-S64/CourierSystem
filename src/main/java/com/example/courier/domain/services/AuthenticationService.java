@@ -1,8 +1,8 @@
 package com.example.courier.domain.services;
 
+import com.example.courier.domain.repositories.UserRepository;
 import com.example.courier.domain.valueobjects.UserRole;
 import com.example.courier.models.UserGlobal;
-import com.example.courier.domain.repositories.UserRepository;
 import com.example.courier.utils.security.EncryptPassword;
 
 public class AuthenticationService {
