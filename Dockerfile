@@ -15,4 +15,4 @@ WORKDIR /app
 COPY --from=builder /app/target/couriersystem-1.0-SNAPSHOT.jar app.jar
 COPY --from=builder /app/target/libs libs
 
-ENTRYPOINT ["java", "--enable-preview", "-cp", "app.jar:libs/*", "com.example.courier.HelloApplication"]
+ENTRYPOINT ["java", "--enable-preview", "-cp", "app.jar:libs/*", "com.example.courier.Launcher"]

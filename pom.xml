@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.10.2</junit.version>
         <javafx.version>17.0.6</javafx.version>
-        <main.class>com.example.courier.HelloApplication</main.class>
+        <main.class>com.example.courier.Launcher</main.class>
     </properties>
 
     <dependencies>
