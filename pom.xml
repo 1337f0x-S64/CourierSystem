@@ -216,7 +216,7 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.courier/${main.class}</mainClass>
+                            <mainClass>${main.class}</mainClass>
                             <options>--enable-preview</options>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
