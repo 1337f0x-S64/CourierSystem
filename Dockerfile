@@ -12,7 +12,7 @@ FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libx11-6 \
     libxext6 \
     libxi6 \
@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     libxxf86vm1 \
     libgl1 \
     libgtk-3-0 \
-    libasound2 \
+    libasound2t64 \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /app/target/couriersystem-1.0-SNAPSHOT.jar app.jar
